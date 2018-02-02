@@ -10,15 +10,27 @@ func main() {
 	nyan := []string{"に", "ゃ", "ー", "ん", ""}
 	rand.Seed(time.Now().UnixNano())
 
-	for i := 0; i < 22; i++ {
-		callNyan(nyan)
+	nyaon := 0
+	for {
+		if callNyan(nyan) {
+			break
+		}
+		nyaon++
 	}
+	fmt.Println("nyannyan: ", nyaon)
 }
 
-func callNyan(nyan []string) {
+func callNyan(nyan []string) bool {
+	nyaa := "にゃーん"
+	unya := ""
 	for i := 0; i < 4; i++ {
-		fmt.Print(nyan[rand.Intn(len(nyan))])
+		unya += nyan[rand.Intn(len(nyan))]
 	}
-	fmt.Println()
+	fmt.Println(unya)
 
+	if unya == nyaa {
+		return true
+	} else {
+		return false
+	}
 }
